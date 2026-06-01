@@ -1,5 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
-import { useAppContext, type Category } from '../Context/AppContext';
+import { useAppContext } from '../context/AppContext';
+import type { Category } from '../context/AppContext';
 
 const COLORS: Record<Category, string> = {
   salary: '#1D9E75',
@@ -30,48 +31,55 @@ function Chart() {
 
   if (data.length === 0) {
     return (
-      <div className="flex h-full items-center justify-center rounded-xl border border-gray-700 p-4">
-        <p className="text-sm text-gray-500">No expenses yet</p>
+      <div className="rounded-xl border border-gray-700 p-3 md:p-4 flex items-center justify-center min-h-50">
+        <p className="text-xs md:text-sm text-gray-500">No expenses yet</p>
       </div>
     );
   }
+
   return (
-    <div className="rounded-xl border border-gray-700 p-4">
-      <h3 className="mb-4 text-xs tracking-widest text-gray-400 uppercase">
+    <div className="rounded-xl border border-gray-700 p-3 md:p-4">
+      <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-3 md:mb-4">
         Spending Breakdown
       </h3>
-
-      <PieChart width={250} height={220}>
-        <Pie
-          data={data}
-          cx={120}
-          cy={100}
-          innerRadius={60}
-          outerRadius={90}
-          paddingAngle={3}
-          dataKey="value"
-        >
-          {data.map((entry) => (
-            <Cell key={entry.name} fill={COLORS[entry.name as Category]} />
-          ))}
-        </Pie>
-        <Tooltip
+      <div className="flex justify-center">
+        <PieChart width={220} height={200}>
+          <Pie
+            data={data}
+            cx={110}
+            cy={90}
+            innerRadius={50}
+            outerRadius={80}
+            paddingAngle={3}
+            dataKey="value"
+          >
+            {data.map((entry) => (
+              <Cell
+                key={entry.name}
+                fill={COLORS[entry.name as Category]}
+              />
+            ))}
+          </Pie>
+          <Tooltip
             formatter={(value) => `₦${Number(value).toLocaleString()}`}
-          contentStyle={{
-            backgroundColor: '#0f172a',
-            border: '1px solid #374151',
-            borderRadius: '8px',
-            fontSize: '12px',
-          }}
-        />
-        <Legend
-          iconType="circle"
-          iconSize={8}
-           formatter={(value) => (
-            <span style={{ fontSize: '12px', color: '#9ca3af' }}>{value}</span>
-          )}
-        />
-      </PieChart>
+            contentStyle={{
+              backgroundColor: '#0f172a',
+              border: '1px solid #374151',
+              borderRadius: '8px',
+              fontSize: '11px',
+            }}
+          />
+          <Legend
+            iconType="circle"
+            iconSize={7}
+            formatter={(value) => (
+              <span style={{ fontSize: '11px', color: '#9ca3af' }}>
+                {value}
+              </span>
+            )}
+          />
+        </PieChart>
+      </div>
     </div>
   );
 }

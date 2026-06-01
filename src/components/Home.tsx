@@ -5,10 +5,10 @@ import Chart from './Chart';
 
 function Home() {
   return (
-    <div className="m-5 flex justify-center">
-      <div className="w-[90%] max-w-2xl">
+    <div className="m-3 sm:m-5 flex justify-center">
+      <div className="w-full max-w-2xl">
         <Header />
-        <div className="grid grid-cols-2 gap-4 my-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
           <AddTransaction />
           <Chart />
         </div>

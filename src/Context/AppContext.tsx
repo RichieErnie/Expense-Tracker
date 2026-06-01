@@ -23,7 +23,7 @@ interface AppContextType {
   transactions: Transaction[];
   addTransaction: (transaction: Omit<Transaction, 'id'>) => void;
   deleteTransaction: (id: number) => void;
-  clearTransaction: () => void;
+  clearTransactions: () => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -50,7 +50,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setTransactions(transactions.filter((t) => t.id !== id));
   };
 
-  const clearTransaction = () => {
+  const clearTransactions = () => {
     setTransactions([]);
   };
 
@@ -60,7 +60,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         transactions,
         addTransaction,
         deleteTransaction,
-        clearTransaction,
+        clearTransactions,
       }}
     >
       {children}
