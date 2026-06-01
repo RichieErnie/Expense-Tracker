@@ -28,18 +28,18 @@ function AddTransaction() {
 
   return (
     <div className="rounded-xl border border-gray-700 p-3 md:p-4">
-      <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-3 md:mb-4">
+      <h3 className="mb-3 text-xs tracking-widest text-gray-400 uppercase md:mb-4">
         Add Transaction
       </h3>
 
       {/* Income / Expense toggle */}
-      <div className="grid grid-cols-2 gap-2 mb-3 md:mb-4">
+      <div className="mb-3 grid grid-cols-2 gap-2 md:mb-4">
         <button
           onClick={() => {
             setType('income');
             setCategory('salary');
           }}
-          className={`rounded-lg border py-1.5 md:py-2 text-xs md:text-sm font-medium transition-colors duration-200 ${
+          className={`rounded-lg border py-1.5 text-xs font-medium transition-colors duration-200 md:py-2 md:text-sm ${
             type === 'income'
               ? 'border-green-500 bg-green-500/10 text-green-400'
               : 'border-gray-700 bg-transparent text-white'
@@ -52,7 +52,7 @@ function AddTransaction() {
             setType('expense');
             setCategory('food');
           }}
-          className={`rounded-lg border py-1.5 md:py-2 text-xs md:text-sm font-medium transition-colors duration-200 ${
+          className={`rounded-lg border py-1.5 text-xs font-medium transition-colors duration-200 md:py-2 md:text-sm ${
             type === 'expense'
               ? 'border-red-500 bg-red-500/10 text-red-400'
               : 'border-gray-700 bg-transparent text-white'
@@ -68,7 +68,7 @@ function AddTransaction() {
         placeholder="Description..."
         value={description}
         onChange={(e) => setDescription(e.target.value)}
-        className="w-full rounded-lg border border-gray-700 bg-transparent p-2 text-xs md:text-sm placeholder-gray-500 outline-none focus:border-white mb-2 md:mb-3"
+        className="mb-2 w-full rounded-lg border border-gray-700 bg-transparent p-2 text-xs placeholder-gray-500 outline-none focus:border-white md:mb-3 md:text-sm"
       />
 
       {/* Amount input */}
@@ -78,15 +78,15 @@ function AddTransaction() {
         value={amount}
         min="0"
         onChange={(e) => setAmount(e.target.value)}
-        className="w-full rounded-lg border border-gray-700 bg-transparent p-2 text-xs md:text-sm placeholder-gray-500 outline-none focus:border-white mb-2 md:mb-3"
+        className="mb-2 w-full rounded-lg border border-gray-700 bg-transparent p-2 text-xs placeholder-gray-500 outline-none focus:border-white md:mb-3 md:text-sm"
       />
 
       {/* Category and date row */}
-      <div className="grid grid-cols-2 gap-2 mb-3 md:mb-4">
+      <div className="mb-3 grid grid-cols-2 gap-2 md:mb-4">
         <select
           value={category}
           onChange={(e) => setCategory(e.target.value as Category)}
-          className="rounded-lg border border-gray-700 bg-[#0f172a] p-2 text-xs md:text-sm text-gray-400 outline-none focus:border-white cursor-pointer"
+          className="cursor-pointer rounded-lg border border-gray-700 bg-[#0f172a] p-2 text-xs text-gray-400 outline-none focus:border-white md:text-sm"
         >
           {type === 'income' ? (
             <>
@@ -107,14 +107,14 @@ function AddTransaction() {
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
-          className="rounded-lg border border-gray-700 bg-transparent p-2 text-xs md:text-sm text-gray-400 outline-none focus:border-white cursor-pointer"
+          className="cursor-pointer rounded-lg border border-gray-700 bg-transparent p-2 text-xs text-gray-400 outline-none focus:border-white md:text-sm"
         />
       </div>
 
       {/* Add button */}
       <button
         onClick={handleAdd}
-        className="w-full rounded-lg bg-white py-2 text-xs md:text-sm font-medium text-black hover:bg-gray-200 transition-colors duration-200"
+        className="w-full rounded-lg bg-white py-2 text-xs font-medium text-black transition-colors duration-200 hover:bg-gray-200 md:text-sm"
       >
         Add Transaction
       </button>
