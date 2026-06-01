@@ -32,9 +32,9 @@ npm run dev
 ```
 
 ## Screenshots
-(./screenshots/dashboard screenshot.png)
-(./screenshots/Screenshot.png)
-(./screenshots/screen-shot.png)
+! [Dashboard](./screenshots/dashboard-screenshot.png)
+! [](./screenshots/Screenshot.png)
+! [](./screenshots/screen-shot.png)
 
 ## Author
 
