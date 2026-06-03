@@ -34,7 +34,7 @@ npm run dev
 ## Screenshots
 ! [Dashboard](./screenshots/dashboard-screenshot.png)
 ! [](./screenshots/Screenshot.png)
-! [](./screenshots/screen-shot.png)
+! [](./screenshots/screenshott.png)
 
 ## Author
 
